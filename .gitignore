@@ -18,3 +18,12 @@ Thumbs.db
 
 # Log files
 *.log
+
+// Load and parse the accounts
+const accounts = JSON.parse(accountsJson);
+const accountMap = new Map(accounts.map(a => [a.address, a]));
+
+// Lookup an account
+function getAccountName(address: string) {
+  return accountMap.get(address)?.name || "Unknown Account";
+}
